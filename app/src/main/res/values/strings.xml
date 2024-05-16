@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Chat GPT Chat Bot</string>
+    //my API_KEY
+    <string name="apiKey">sk-proj-7b3lOJW5Tdx55tYyDAxMT3BlbkFJ4bokFcWhrSsjnpnwApQi</string>
+
 </resources>
