@@ -13,13 +13,14 @@
         android:padding="8dp"
         android:layout_marginEnd="80dp"
         >
-        <TextView
+
+        <ImageView
+            android:id="@+id/my_image_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/left_chat_text_view"
-            android:textColor="@color/my_light_background"
-            android:textSize="18sp"
-            />
+            android:src="@drawable/ic_launcher_background"
+        />
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -35,8 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/right_chat_text_view"
-            android:textColor="@color/my_light_background"
             android:textSize="18sp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             />
     </LinearLayout>
 
