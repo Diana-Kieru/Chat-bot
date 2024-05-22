@@ -5,11 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Combined RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycler_view"
         android:layout_above="@id/bottom_layout" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +21,6 @@
         android:gravity="center"
         android:textSize="28dp"
         />
-
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -59,11 +60,5 @@
                 android:src="@drawable/baseline_send_24"/>
         </LinearLayout>
     </RelativeLayout>
-
-
-
-
-
-
 
 </RelativeLayout>
