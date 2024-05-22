@@ -1,12 +1,16 @@
 package com.example.chatgptchatbot;
 
 import android.graphics.Bitmap;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,9 +20,11 @@ import java.util.List;
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHolder> {
 
     List<Message> messageList;
+    MainActivity mainActivity = new MainActivity();
 
     public MessageAdapter(List<Message> messageList) {
         this.messageList = messageList;
+        this.mainActivity = new MainActivity();
     }
 
     @NonNull
@@ -27,6 +33,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         View chatView = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_item, parent, false);
         return new MyViewHolder(chatView);
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
@@ -43,9 +51,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         // Configure the views based on the sender
         if (message.getSentBy().equals(Message.SENT_BY_ME)) {
             holder.rightChatView.setVisibility(View.VISIBLE);
-            if (message.getMessage() != null && !message.getMessage().isEmpty()) {
+            if (message.getMessage() != null && !message.getMessage().toString().isEmpty()) {
                 holder.rightTextView.setVisibility(View.VISIBLE);
-                holder.rightTextView.setText(message.getMessage());
+                holder.rightTextView.setText(message.getMessage(), TextView.BufferType.SPANNABLE);
+                Linkify.addLinks(holder.rightTextView, Linkify.ALL); // Make links clickable
             }
             if (message.getImage() != null) {
                 holder.rightImageView.setVisibility(View.VISIBLE);
@@ -53,9 +62,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
             }
         } else {
             holder.leftChatView.setVisibility(View.VISIBLE);
-            if (message.getMessage() != null && !message.getMessage().isEmpty()) {
+            if (message.getMessage() != null && !message.getMessage().toString().isEmpty()) {
                 holder.leftTextView.setVisibility(View.VISIBLE);
-                holder.leftTextView.setText(message.getMessage());
+                holder.leftTextView.setText(message.getMessage(), TextView.BufferType.SPANNABLE);
+                Linkify.addLinks(holder.leftTextView, Linkify.ALL); // Make links clickable
             }
             if (message.getImage() != null) {
                 holder.leftImageView.setVisibility(View.VISIBLE);
@@ -63,7 +73,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
             }
         }
     }
-
     @Override
     public int getItemCount() {
         return messageList.size();

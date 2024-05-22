@@ -1,35 +1,28 @@
 package com.example.chatgptchatbot;
 
+
 import android.graphics.Bitmap;
+import android.text.SpannableString;
 
 public class Message {
-    private String message;
+    private SpannableString message;
     private String sentBy;
     private Bitmap image;
 
     public static final String SENT_BY_ME = "me";
     public static final String SENT_BY_BOT = "bot";
 
-    // Constructor for text-only messages
-    public Message(String message, String sentBy) {
-        this.message = message;
-        this.sentBy = sentBy;
-        this.image = null; // No image for text-only messages
-    }
-
-    // Constructor for messages with an image
-    public Message(String message, String sentBy, Bitmap image) {
+    public Message(SpannableString message, String sentBy, Bitmap image) {
         this.message = message;
         this.sentBy = sentBy;
         this.image = image;
     }
 
-    // Getters and setters for message, sentBy, and image
-    public String getMessage() {
+    public SpannableString getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(SpannableString message) {
         this.message = message;
     }
 
