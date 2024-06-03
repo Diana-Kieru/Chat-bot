@@ -11,7 +11,7 @@
         android:layout_gravity="start"
         android:orientation="vertical"
         android:layout_margin="6dp"
-        android:padding="8dp"
+        android:padding="6dp"
         android:visibility="gone">
 
         <ImageView
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corner"
             android:fontFamily="@font/roboto"
-            android:padding="8dp"
+            android:padding="6dp"
             android:text="Left Text"
             android:textColor="@android:color/black" />
     </LinearLayout>
